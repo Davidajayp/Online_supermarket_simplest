@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body{
+background-image:url("4.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+#header{
+background-image:url("1.jpg");
+background-size:cover;
+}
+a:link { text-decoration:none; }
+a:visited { text-decoration:none; }
+a:hover { text-decoration:none; }
+a:active { text-decoration:none; }
+.centerimg{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+th{
+color:black;
+}
+</style>
+</head>
+<body>
+<header id="header">
+<img src="3.png" width="125" height="125">
+<button onclick="document.location='home.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Home</button>
+<button onclick="document.location='sign.php'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Sign Up</button>
+</header>
+<br><br><br><br>
+<h1 style="text-align:center;color:black;">AV STORES</h1>
+<br><br><br><br><br><br>
+<form method="POST" action="http://localhost/ITE IRS/buynow_dir.php">
+<table align="center" cellpadding="10">
+<tr>
+<th>Item name</th>
+<th>Item Code</th>
+<th>Price in Rs.</th>
+<th>Quantity</th>
+</tr>
+<tr>
+<td><input type="text" value="Colgate Paste" name="cp" readonly></td>
+<td><input type="text" value="ASD324" name="cpcode" required> </td>
+<td><input type="number" value="15" name="cpprice" readonly></td>
+<td><input type="number" name="cpquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Salt(1kg)" name="ts" readonly></td>
+<td><input type="text" value="BGF786" name="tscode" required> </td>
+<td><input type="number" value="20" name="tsprice" readonly></td>
+<td><input type="number" name="tsquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="tomato(1kg)" name="tom" readonly></td>
+<td><input type="text" value="MFQ037" name="tomcode" required> </td>
+<td><input type="number" value="21" name="tomprice" readonly></td>
+<td><input type="number" name="tomquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="potato(1kg)" name="pot" readonly></td>
+<td><input type="text" value="VFS857" name="potcode" required> </td>
+<td><input type="number" value="25" name="potprice" readonly></td>
+<td><input type="number" name="potquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="onion(1kg)" name="oni" readonly></td>
+<td><input type="text" value="JFG674" name="onicode" required> </td>
+<td><input type="number" value="35" name="oniprice" readonly></td>
+<td><input type="number" name="oniquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="cauliflower(1pc)" name="cf" readonly></td>
+<td><input type="text" value="CCS234" name="cfcode" required> </td>
+<td><input type="number" value="42" name="cfprice" readonly></td>
+<td><input type="number" name="cfquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Dosa-flour" name="ms" readonly></td>
+<td><input type="text" value="ASF564" name="mscode" required> </td>
+<td><input type="number" value="49" name="msprice" readonly></td>
+<td><input type="number" name="msquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Aashirvad-Whole wheat(1kg)" name="aww" readonly></td>
+<td><input type="text" value="BFH867" name="awwcode" required> </td>
+<td><input type="number" value="52" name="awwprice" readonly></td>
+<td><input type="number" name="awwquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="frozengreenpeas(500g)" name="fgp" readonly></td>
+<td><input type="text" value="QMZ593" name="fgpcode" required> </td>
+<td><input type="number" value="99" name="fgpprice" readonly></td>
+<td><input type="number" name="fgpquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Mr.Gold(Groundnut-Oil)" name="ac" readonly></td>
+<td><input type="text" value="ASW564" name="accode" required> </td>
+<td><input type="number" value="122" name="acprice" readonly></td>
+<td><input type="number" name="acquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Kissan Jam" name="db" readonly></td>
+<td><input type="text" value="VRM235" name="dbcode" required> </td>
+<td><input type="number" value="143" name="dbprice" readonly></td>
+<td><input type="number" name="dbquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Idhayam Oil" name="fsf" readonly></td>
+<td><input type="text" value="SAL768" name="fsfcode" required> </td>
+<td><input type="number" value="165" name="fsfprice" readonly></td>
+<td><input type="number" name="fsfquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="cardamom-green(50g)" name="car" readonly></td>
+<td><input type="text" value="SDE234" name="carcode" required> </td>
+<td><input type="number" value="190" name="carprice" readonly></td>
+<td><input type="number" name="carquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="farm-eggs(30pc)" name="fe" readonly></td>
+<td><input type="text" value="ASL391" name="fecode" required> </td>
+<td><input type="number" value="199" name="feprice" readonly></td>
+<td><input type="number" name="fequantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Amul-butter(500g)" name="ab" readonly></td>
+<td><input type="text" value="LKI657" name="abcode" required> </td>
+<td><input type="number" value="235" name="abprice" readonly></td>
+<td><input type="number" name="abquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="parachutecoconutoil(600ml)" name="pco" readonly></td>
+<td><input type="text" value="ZWA250" name="pcocode" required> </td>
+<td><input type="number" value="248" name="pcoprice" readonly></td>
+<td><input type="number" name="pcoquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Oliveoil(250ml)" name="oo" readonly></td>
+<td><input type="text" value="DSD345" name="oocode" required> </td>
+<td><input type="number" value="299" name="ooprice" readonly></td>
+<td><input type="number" name="ooquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td><input type="text" value="Drools(5kg)" name="pam" readonly></td>
+<td><input type="text" value="DDO342" name="pamcode" required> </td>
+<td><input type="number" value="862" name="pamprice" readonly></td>
+<td><input type="number" name="pamquantity" value="0" min="0" max="10"></td>
+</tr>
+<tr>
+<td colspan="4" align="center">
+<input type="submit" value="Buy Now"><br></td>
+</tr>
+<td colspan="4" align="center">
+<p>New User? <a href="http://localhost/ITE IRS/sign.php" style="colo:rgb(0,200,20);">Sign Up</a></td>
+</tr>
+</table>
+</form>
+<br><br><br>
+<h3 style="font-size:20px;">Contact Us: <a href="mailto:044-2363-6986">PHONE</a></h3>
+</body>
+</html>
