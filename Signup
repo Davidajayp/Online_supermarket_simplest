@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AV STORES-Sign Up</title>
+<style>
+body{
+background-image:url(4.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+#header{
+background-image:url(1.jpg);
+background-size:cover;
+}
+a:link { text-decoration:none; }
+a:visited { text-decoration:none; }
+a:hover { text-decoration:none; }
+a:active { text-decoration:none; }
+.centerimg{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+td{
+color:yellow;
+}
+#privacy{
+background-color:white;
+}
+</style>
+</head>
+<body>
+<header id="header">
+<img src="3.png" width="125" height="125">
+<button onclick="document.location='home.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:black;">Home</button>
+</header>
+<br><br><br><br>
+<h1 style="text-align:center;color:black;">AV STORES</h1>
+<br><br><br><br><br><br>
+<h2 style="text-align:center;color:black;">Register Here</h2>
+<form method="POST" action="http://localhost/ITE IRS/buynow_dir.php">
+<table align="center" cellpadding="10">
+<tr>
+<td>Username</td>
+<td><input type="text" name="username" required> </td>
+</tr>
+<tr>
+<td>PhoneNo</td>
+<td><input type="tel" pattern="[0-9]{10}" name="phoneno" required></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><textarea id="address" name="address" rows="9" cols="21" required> </textarea> </td>
+</tr>
+<tr>
+<td>City</td>
+<td><input type="text" name="city" required></td>
+</tr>
+<tr>
+<td>Email</td>
+<td><input type="email" name="email" required></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" id="password" name="password" required></td>
+</tr>
+<tr>
+<td>Confirm Password</td>
+<td><input type="password" id="confirm_password" name="confirm_password" required></td>
+</tr>
+<tr><td colspan="2">
+<input type="checkbox" id="terms" name="conditions" required>
+<label for="terms">I agree to the terms and conditions of the AV</label><br>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Sign Up!"><br></td>
+</tr>
+<td colspan="2" align="center">
+<p>Existing User? <a href="http://localhost/ITE IRS/shopnow.html" style="color:rgb(171,178,82);">Shop Now!</a></td>
+</tr>
+</table>
+</form>
+<br><br><br><br><br><br>
+<h3 style="font-size:20px;">Contact Us: <a href="044-2363-8373">PHONE AV</a></h3>
+</body>
+</html>
