@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AV-Billing</title>
+<style>
+body{
+background-image:url("https://www.wallpaperbetter.com/wallpaper/8/279/806/cave-johnson-supermarket-women-model-portal-2-video-games-1080P-wallpaper-middle-size.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+#header{
+background-image:url("https://wallpapercave.com/wp/wp3152292.jpg");
+background-size:cover;
+}
+a:link { text-decoration:none; }
+a:visited { text-decoration:none; }
+a:hover { text-decoration:none; }
+a:active { text-decoration:none; }
+.centerimg{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+</style>
+</head>
+<body>
+<header id="header">
+<img src="logo.png" width="125" height="125">
+<button onclick="document.location='home.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Home</button>
+<button onclick="document.location='signup.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Sign Up</button>
+<button onclick="document.location='shopnow.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Shop Now</button>
+</header>
+<br><br><br><br>
+<h1 style="text-align:center;color:rgba(0,67,67,0.6);"><span>AV Stores</span></h1>
+<br><br><br><br><br><br>
+<?php
+$link=new mysqli("localhost","root","","Onlinemarket");
+if($link->connect_error){
+die("Can't connect database" . $link->connect_error );
+}
+$user=$_POST['usernamelog'];
+$sql="SELECT * FROM Users WHERE Username='$user'";
+$result=$link->query($sql);
+if(!$result) die("Username not found" . $link->error);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$passcode=$row['password'];
+}
+if($passcode==$_POST['passwordlog']){
+session_start();
+echo "<table align='center' cellpadding='10' background='https://images.pexels.com/photos/4057766/pexels-photo-4057766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'> <tr><th>Item name</th> <th>Item price</th> <th>Quantity</th> <th>Total Item Price</th></tr>";
+$total=0;
+if($_SESSION["cpquantity"]!=0){
+$cptot=$_SESSION["cpprice"]*$_SESSION["cpquantity"];
+echo "<tr> <td>Colgate Paste</td> <td>" . $_SESSION['cpprice'] . "</td> <td>" . $_SESSION['cpquantity'] . "</td><td>" . $cptot . "</td></tr>";
+$total+=$cptot;
+$sql="SELECT * FROM items WHERE item='Colgate Paste'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['cpquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Colgate Paste'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["tsquantity"]!=0){
+$tstot=$_SESSION["tsprice"]*$_SESSION["tsquantity"];
+echo "<tr> <td>Salt(1kg)</td> <td>" . $_SESSION['tsprice'] . "</td> <td>" . $_SESSION['tsquantity'] . "</td><td>" . $tstot . "</td></tr>";
+$total+=$tstot;
+$sql="SELECT * FROM items WHERE item='Salt(1kg)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['tsquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Salt(1kg)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["tomquantity"]!=0){
+$tomtot=$_SESSION["tomprice"]*$_SESSION["tomquantity"];
+echo "<tr> <td>tomato(1kg)</td> <td>" . $_SESSION['tomprice'] . "</td> <td>" . $_SESSION['tomquantity'] . "</td><td>" . $tomtot . "</td></tr>";
+$total+=$tomtot;
+$sql="SELECT * FROM items WHERE item='tomato(1kg)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['tomquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='tomato(1kg)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["potquantity"]!=0){
+$pottot=$_SESSION["potprice"]*$_SESSION["potquantity"];
+echo "<tr> <td>potato(1kg)</td> <td>" . $_SESSION['potprice'] . "</td> <td>" . $_SESSION['potquantity'] . "</td><td>" . $pottot . "</td></tr>";
+$total+=$pottot;
+$sql="SELECT * FROM items WHERE item='potato(1kg)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['potquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='potato(1kg)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["oniquantity"]!=0){
+$onitot=$_SESSION["oniprice"]*$_SESSION["oniquantity"];
+echo "<tr> <td>onion(1kg)</td> <td>" . $_SESSION['oniprice'] . "</td> <td>" . $_SESSION['oniquantity'] . "</td><td>" . $onitot . "</td></tr>";
+$total+=$onitot;
+$sql="SELECT * FROM items WHERE item='onion(1kg)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['oniquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='onion(1kg)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["cfquantity"]!=0){
+$cftot=$_SESSION["cfprice"]*$_SESSION["cfquantity"];
+echo "<tr> <td>cauliflower(1pc)</td> <td>" . $_SESSION['cfprice'] . "</td> <td>" . $_SESSION['cfquantity'] . "</td><td>" . $cftot . "</td></tr>";
+$total+=$cftot;
+$sql="SELECT * FROM items WHERE item='cauliflower(1pc)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['cfquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='cauliflower(1pc)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["msquantity"]!=0){
+$mstot=$_SESSION["msprice"]*$_SESSION["msquantity"];
+echo "<tr> <td>Dosa-flour</td> <td>" . $_SESSION['msprice'] . "</td> <td>" . $_SESSION['msquantity'] . "</td><td>" . $mstot . "</td></tr>";
+$total+=$mstot;
+$sql="SELECT * FROM items WHERE item='Dosa-flour'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['msquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Dosa-flour'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["awwquantity"]!=0){
+$awwtot=$_SESSION["awwprice"]*$_SESSION["awwquantity"];
+echo "<tr> <td>Aashirvad-Whole wheat(1kg)</td> <td>" . $_SESSION['awwprice'] . "</td> <td>" . $_SESSION['awwquantity'] . "</td><td>" . $awwtot . "</td></tr>";
+$total+=$awwtot;
+$sql="SELECT * FROM items WHERE item='Aashirvad-Whole wheat(1kg)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['awwquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Aashirvad-Whole wheat(1kg)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["fgpquantity"]!=0){
+$fgptot=$_SESSION["fgpprice"]*$_SESSION["fgpquantity"];
+echo "<tr> <td>frozengreenpeas(500g)</td> <td>" . $_SESSION['fgpprice'] . "</td> <td>" . $_SESSION['fgpquantity'] . "</td><td>" . $fgptot . "</td></tr>";
+$total+=$fgptot;
+$sql="SELECT * FROM items WHERE item='frozengreenpeas(500g)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['fgpquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='frozengreenpeas(500g)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["acquantity"]!=0){
+$actot=$_SESSION["acprice"]*$_SESSION["acquantity"];
+echo "<tr> <td>Mr.Gold(Groundnut-Oil)</td> <td>" . $_SESSION['acprice'] . "</td> <td>" . $_SESSION['acquantity'] . "</td><td>" . $actot . "</td></tr>";
+$total+=$actot;
+$sql="SELECT * FROM items WHERE item='Mr.Gold(Groundnut-Oil)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['acquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Mr.Gold(Groundnut-Oil)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["dbquantity"]!=0){
+$dbtot=$_SESSION["dbprice"]*$_SESSION["dbquantity"];
+echo "<tr> <td>Kissan Jam</td> <td>" . $_SESSION['dbprice'] . "</td> <td>" . $_SESSION['dbquantity'] . "</td><td>" . $dbtot . "</td></tr>";
+$total+=$dbtot;
+$sql="SELECT * FROM items WHERE item='Kissan Jam'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['dbquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Kissan Jam'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["fsfquantity"]!=0){
+$fsftot=$_SESSION["fsfprice"]*$_SESSION["fsfquantity"];
+echo "<tr> <td>Idhayam Oil</td> <td>" . $_SESSION['fsfprice'] . "</td> <td>" . $_SESSION['fsfquantity'] . "</td><td>" . $fsftot . "</td></tr>";
+$total+=$fsftot;
+$sql="SELECT * FROM items WHERE item='Idhayam Oil'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['fsfquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Idhayam Oil'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["carquantity"]!=0){
+$cartot=$_SESSION["carprice"]*$_SESSION["carquantity"];
+echo "<tr> <td>cardamom-green(50g)</td> <td>" . $_SESSION['carprice'] . "</td> <td>" . $_SESSION['carquantity'] . "</td><td>" . $cartot . "</td></tr>";
+$total+=$cartot;
+$sql="SELECT * FROM items WHERE item='cardamom-green(50g)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['carquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='cardamom-green(50g)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["fequantity"]!=0){
+$fetot=$_SESSION["feprice"]*$_SESSION["fequantity"];
+echo "<tr> <td>farm-eggs(30pc)</td> <td>" . $_SESSION['feprice'] . "</td> <td>" . $_SESSION['fequantity'] . "</td><td>" . $fetot . "</td></tr>";
+$total+=$fetot;
+$sql="SELECT * FROM items WHERE item='farm-eggs(30pc)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['fequantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='farm-eggs(30pc)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["abquantity"]!=0){
+$abtot=$_SESSION["abprice"]*$_SESSION["abquantity"];
+echo "<tr> <td>Amul-butter(500g)</td> <td>" . $_SESSION['abprice'] . "</td> <td>" . $_SESSION['abquantity'] . "</td><td>" . $abtot . "</td></tr>";
+$total+=$abtot;
+$sql="SELECT * FROM items WHERE item='Amul-butter(500g)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['abquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Amul-butter(500g)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["pcoquantity"]!=0){
+$pcotot=$_SESSION["pcoprice"]*$_SESSION["pcoquantity"];
+echo "<tr> <td>parachutecoconutoil(600ml)</td> <td>" . $_SESSION['pcoprice'] . "</td> <td>" . $_SESSION['pcoquantity'] . "</td><td>" . $pcotot . "</td></tr>";
+$total+=$pcotot;
+$sql="SELECT * FROM items WHERE item='parachutecoconutoil(600ml)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['pcoquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='parachutecoconutoil(600ml)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["ooquantity"]!=0){
+$ootot=$_SESSION["ooprice"]*$_SESSION["ooquantity"];
+echo "<tr> <td>Oliveoil(250ml)</td> <td>" . $_SESSION['ooprice'] . "</td> <td>" . $_SESSION['ooquantity'] . "</td><td>" . $ootot . "</td></tr>";
+$total+=$ootot;
+$sql="SELECT * FROM items WHERE item='Oliveoil(250ml)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['ooquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Oliveoil(250ml)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+if($_SESSION["pamquantity"]!=0){
+$pamtot=$_SESSION["pamprice"]*$_SESSION["pamquantity"];
+echo "<tr> <td>Drools(5kg)</td> <td>" . $_SESSION['pamprice'] . "</td> <td>" . $_SESSION['pamquantity'] . "</td><td>" . $pamtot . "</td></tr>";
+$total+=$pamtot;
+$sql="SELECT * FROM items WHERE item='Drools(5kg)'";
+$result=$link->query($sql);
+$rows=$result->num_rows;
+for($i=0;$i<$rows;$i++){
+$result->data_seek($i);
+$row=$result->fetch_array(MYSQLI_ASSOC);
+$data=$row['Shop_quantity'];
+}
+$data-=$_SESSION['pamquantity'];
+$sql="UPDATE items SET Shop_quantity=$data WHERE item='Drools(5kg)'";
+$result=$link->query($sql);
+if(!$result) die("Failed" . $link->error);
+}
+echo "<tr> <td colspan='4' align='center'>Rs.$total</td></tr>";
+echo "</table>";
+}
+else{
+die("Incorrect password");
+}
+?>
+</body>
+</html>
