@@ -1,0 +1,48 @@
+Home:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AV-Stores-Home</title>
+<style>
+body{
+background-image:url(4.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+#header{
+background: url(1.jpg);
+background-size:cover;
+}
+a:link { text-decoration:none; }
+a:visited { text-decoration:none; }
+a:hover { text-decoration:none; }
+a:active { text-decoration:none; }
+.centerimg{
+display:block;
+margin-left:auto;
+margin-right:auto;
+</style>
+</head>
+<body>
+<header id="header">
+<img src="3.png" width="125" height="125">
+<button onclick="document.location='shopnow.html'" style="float:right;font-size:35px;margin-right:45px;margin-top:40px;">Shop Now</button>
+<button onclick="document.location='http://localhost/ITE IRS/sign.php'" style="float:right;font-size:35px;margin-right:45px;margin-top:40px;">Sign Up</button>
+</header>
+<br><br><br><br>
+<h1 style="text-align:center;">AV-STORES</h1>
+<br><br><br><br><br><br>
+<h1>Online Grocery Store With the Freshest Produce - AV</h1>
+<p style="color: black;font-size: 40px">AV is the leading hypermarket and focuses to provide its customers with fresh produce every time they visit the store, be it the physical or online grocery store. AV has 12,500+ stores in 44 countries across 4 continents. In India AV currently has 24 stores across 9 cities including — Bangalore, Mangalore, Shimoga, Chennai, Coimbatore, Hyderabad, New Delhi, Gurugram and Ghaziabad. Apart from physical stores, AV also has an online presence. It is great to get all your groceries and daily essentials delivered right to your doorstep? Isn’t it? </p>
+<ul>
+<li style="font-size: 20px;">Doorstep deliveries</li>
+<li style="font-size: 20px;">Cashless payments</li>
+<li style="font-size: 20px;">Frequent sanitization of hands</li>
+</ul>
+<p style="font-size: 20px;">Food/grocery delivery is safe if the provider follows good personal and food hygiene. practices. Always clean your hands with soap and water after accepting deliveries. Official WHO website. Learn about Coronavirus. Official info on COVID-19.</p>
+<br><br><br>
+<h3 style="font-size:20px;">Contact Us: <a href="mailto:044-2363-6986">PHONE AV</a></h3>
+<address ><pre style="font-size:30px;"
+</body>
+</html>
