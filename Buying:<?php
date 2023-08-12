@@ -1,0 +1,141 @@
+$link=mysqli_connect("localhost","root","","Onlinemarket");
+if(isset($_POST["username"])){
+$username=$_POST["username"];
+$phoneno=$_POST["phoneno"];
+$address=$_POST["address"];
+$city=$_POST['city'];
+$email=$_POST['email'];
+$password=$_POST['password'];
+$confirmpassword=$_POST["confirm_password"];
+$sql="INSERT INTO Users(username,phoneno,address,city,email,password,confirmpassword) VALUES('$username','$phoneno','$address','$city','$email','$password','$confirmpassword')";
+if(mysqli_query($link,$sql)){
+echo "<script>alert('Registered successfully!')</script>";
+}
+else{
+echo "Error: " . $sql . ":-" . mysqli_error($link);
+}
+}
+mysqli_close($link);
+?>
+<?php
+if(isset($_POST["cpprice"])){
+session_start();
+$_SESSION["cpprice"]=$_POST["cpprice"];
+$_SESSION["cpquantity"]=$_POST["cpquantity"];
+$_SESSION["tsprice"]=$_POST["tsprice"];
+$_SESSION["tsquantity"]=$_POST["tsquantity"];
+$_SESSION["tomprice"]=$_POST["tomprice"];
+$_SESSION["tomquantity"]=$_POST["tomquantity"];
+$_SESSION["potprice"]=$_POST["potprice"];
+$_SESSION["potquantity"]=$_POST["potquantity"];
+$_SESSION["oniprice"]=$_POST["oniprice"];
+$_SESSION["oniquantity"]=$_POST["oniquantity"];
+$_SESSION["cfprice"]=$_POST["cfprice"];
+$_SESSION["cfquantity"]=$_POST["cfquantity"];
+$_SESSION["msprice"]=$_POST["msprice"];
+$_SESSION["msquantity"]=$_POST["msquantity"];
+$_SESSION["awwprice"]=$_POST["awwprice"];
+$_SESSION["awwquantity"]=$_POST["awwquantity"];
+$_SESSION["fgpprice"]=$_POST["fgpprice"];
+$_SESSION["fgpquantity"]=$_POST["fgpquantity"];
+$_SESSION["acprice"]=$_POST["acprice"];
+$_SESSION["acquantity"]=$_POST["acquantity"];
+$_SESSION["dbprice"]=$_POST["dbprice"];
+$_SESSION["dbquantity"]=$_POST["dbquantity"];
+$_SESSION["fsfprice"]=$_POST["fsfprice"];
+$_SESSION["fsfquantity"]=$_POST["fsfquantity"];
+$_SESSION["carprice"]=$_POST["carprice"];
+$_SESSION["carquantity"]=$_POST["carquantity"];
+$_SESSION["feprice"]=$_POST["feprice"];
+$_SESSION["fequantity"]=$_POST["fequantity"];
+$_SESSION["abprice"]=$_POST["abprice"];
+$_SESSION["abquantity"]=$_POST["abquantity"];
+$_SESSION["pcoprice"]=$_POST["pcoprice"];
+$_SESSION["pcoquantity"]=$_POST["pcoquantity"];
+$_SESSION["ooprice"]=$_POST["ooprice"];
+$_SESSION["ooquantity"]=$_POST["ooquantity"];
+$_SESSION["pamprice"]=$_POST["pamprice"];
+$_SESSION["pamquantity"]=$_POST["pamquantity"];
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AV-Log In</title>
+<meta name="keywords" content="food,groceries">
+<meta name="author" content="David">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+body{
+background-image:url("4.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+#header{
+background-image:url("1.jpg");
+background-size:cover;
+}
+a:link { text-decoration:none; }
+a:visited { text-decoration:none; }
+a:hover { text-decoration:none; }
+a:active { text-decoration:none; }
+.centerimg{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+h1 span{
+background-color:#F8F8F8;
+}
+h3 span{
+background-color:rgb(50,0,0);
+color:#DCEDC1;
+}
+p span{
+background-color:rgb(171,78,82);
+}
+td{
+color:yellow;
+}
+#privacy{
+background-color:white;
+}
+</style>
+</head>
+<body>
+<header id="header">
+<img src="3.png" width="125" height="125">
+<button onclick="document.location='home.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Home</button>
+<button onclick="document.location='signup.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Sign Up</button>
+<button onclick="document.location='shopnow.html'" style="float:right;font-size:30px;margin-right:45px;margin-top:40px;color:rgb(100,100,100);">Shop Now</button>
+</header>
+<br><br><br><br>
+<h1 style="text-align:center;color:rgba(0,67,67,0.6);"><span>AV STORES</span></h1>
+<br><br><br><br><br><br>
+<form method="POST" action="http://localhost/ITE IRS/billing.php">
+<table align="center" cellpadding="10">
+<tr>
+<td>Username</td>
+<td><input type="text" name="usernamelog" required> </td>
+</tr>
+<td>Password</td>
+<td><input type="password" name="passwordlog" required></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Pay Bill"><br></td>
+</tr>
+<tr>
+<td colspan=2 align="center">Have not shopped Yet? <a href="shopnow.html" style="color:red;">Shop Now</a></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<p>New User? <a href="http://localhost/ITE IRS/sign.php" style="color:rgb(171,78,82);">Sign Up</a></td>
+</tr>
+</table>
+</form>
+<br><br><br><br><br><br>
+<h3 style="font-size:20px;">Contact Us: <a href="mailto:044-2363-6986">PHONE</a></h3>
+</body>
+</html>
